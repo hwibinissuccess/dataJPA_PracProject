@@ -160,8 +160,6 @@ class MemberRepositoryTest {
         memberRepository.save(m2);
 
         //데이터가 없어도 null아님. 보장해줌
-        List<Member> result = memberRepository.findListByUsernames("AAA");
-        Member findMember = memberRepository.findMemberByUsername("AAA");
 
         //데이터가 있을 수도 있고, 없을 수도 있으면 Optional을 쓰는게 맞음
 

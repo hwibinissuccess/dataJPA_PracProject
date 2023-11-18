@@ -29,8 +29,12 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("select m from Member m where m.username in :names")
     List<Member> findByNames(@Param("names") Collection<String> names);
 
-    List<Member> findListByUsernames(String username); //컬렉션
+    @Query("select m from Member m where m.username in :usernames")
+    List<Member> findListByUsernames(@Param("usernames") Collection<String> usernames);
+    //컬렉션
+
     Member findMemberByUsername(String username); //단건
+
     Optional<Member> findOptionalByUsername(String username); //단건 Optional
 
 
