@@ -149,6 +149,21 @@ class MemberRepositoryTest {
         for (Member member : result) {
             System.out.println("member = " + member);
         }
+    }
+
+    @Test
+    public void returnType(){
+
+        Member m1 = new Member("AAA", 10);
+        Member m2 = new Member("BBB", 20);
+        memberRepository.save(m1);
+        memberRepository.save(m2);
+
+        //데이터가 없어도 null아님. 보장해줌
+        List<Member> result = memberRepository.findListByUsernames("AAA");
+        Member findMember = memberRepository.findMemberByUsername("AAA");
+
+        //데이터가 있을 수도 있고, 없을 수도 있으면 Optional을 쓰는게 맞음
 
     }
 
